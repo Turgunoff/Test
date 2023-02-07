@@ -15,8 +15,10 @@ class ListAdapter(val items: List<Offer>) :
 
     class ItemHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvName: TextView = view.findViewById(R.id.tvName)
-        val tvPrice: TextView = view.findViewById(R.id.tvPrice)
-        val imgProduct: ImageView = view.findViewById(R.id.imgProduct)
+        val tvMerchant: TextView = view.findViewById(R.id.tvMerchant)
+        val tvBrand: TextView = view.findViewById(R.id.tvBrand)
+        val tvCategory: TextView = view.findViewById(R.id.tvCategory)
+        val ivImage: ImageView = view.findViewById(R.id.ivImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -29,9 +31,11 @@ class ListAdapter(val items: List<Offer>) :
         val item = items[position]
 
         Glide.with(holder.itemView.context)
-            .load(item.image.url).into(holder.imgProduct)
+            .load(item.image.url).into(holder.ivImage)
         holder.tvName.text = item.name
-        holder.tvPrice.text = item.brand
+        holder.tvMerchant.text = item.merchant
+        holder.tvBrand.text = item.brand
+        holder.tvCategory.text = item.category
     }
 
     override fun getItemCount(): Int {
