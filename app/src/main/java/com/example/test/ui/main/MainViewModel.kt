@@ -9,7 +9,7 @@ import com.example.test.repository.Repository
 
 
 class MainViewModel : ViewModel() {
-    val repository = Repository()
+    private val repository = Repository()
 
     val error = MutableLiveData<String>()
 
